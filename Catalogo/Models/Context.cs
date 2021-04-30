@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Catalogo.Models;
 
 namespace Catalogo.Models
 {
@@ -14,5 +15,7 @@ namespace Catalogo.Models
         }
 
         public DbSet<Categoria> Categorias { get; set; }
+
+        public DbSet<Catalogo.Models.Produto> Produto { get; set; }
     }
 }
