@@ -13,7 +13,7 @@ namespace Catalogo.Models
         [Key]
         public int CategoriaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo nome e Obrigatório!")]
         [MaxLength(80)]
         public string Nome { get; set; }
         [Required]
