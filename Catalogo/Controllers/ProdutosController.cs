@@ -18,14 +18,14 @@ namespace Catalogo.Controllers
             _context = context;
         }
 
-        // GET: Produtos
+        // GET: Produtoes
         public async Task<IActionResult> Index()
         {
-            var context = _context.Produto.Include(p => p.Categorias);
+            var context = _context.Produtos.Include(p => p.Categorias);
             return View(await context.ToListAsync());
         }
 
-        // GET: Produtos/Details/5
+        // GET: Produtoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,7 +33,7 @@ namespace Catalogo.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto
+            var produto = await _context.Produtos
                 .Include(p => p.Categorias)
                 .FirstOrDefaultAsync(m => m.ProdutoId == id);
             if (produto == null)
@@ -44,19 +44,19 @@ namespace Catalogo.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Create
+        // GET: Produtoes/Create
         public IActionResult Create()
         {
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "Nome");
             return View();
         }
 
-        // POST: Produtos/Create
+        // POST: Produtoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProdutoId,Nome,Descricao,Preco,ImagemUrl,Estoque,DataCadastro,CategoriaId")] Produto produto)
+        public async Task<IActionResult> Create([Bind("ProdutoId,Nome,Descricao,Preco,Estoque,DataCadastro,CategoriaId")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace Catalogo.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Edit/5
+        // GET: Produtoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,7 +76,7 @@ namespace Catalogo.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto.FindAsync(id);
+            var produto = await _context.Produtos.FindAsync(id);
             if (produto == null)
             {
                 return NotFound();
@@ -85,12 +85,12 @@ namespace Catalogo.Controllers
             return View(produto);
         }
 
-        // POST: Produtos/Edit/5
+        // POST: Produtoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProdutoId,Nome,Descricao,Preco,ImagemUrl,Estoque,DataCadastro,CategoriaId")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("ProdutoId,Nome,Descricao,Preco,Estoque,DataCadastro,CategoriaId")] Produto produto)
         {
             if (id != produto.ProdutoId)
             {
@@ -121,7 +121,7 @@ namespace Catalogo.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Delete/5
+        // GET: Produtoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,7 +129,7 @@ namespace Catalogo.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto
+            var produto = await _context.Produtos
                 .Include(p => p.Categorias)
                 .FirstOrDefaultAsync(m => m.ProdutoId == id);
             if (produto == null)
@@ -140,20 +140,20 @@ namespace Catalogo.Controllers
             return View(produto);
         }
 
-        // POST: Produtos/Delete/5
+        // POST: Produtoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var produto = await _context.Produto.FindAsync(id);
-            _context.Produto.Remove(produto);
+            var produto = await _context.Produtos.FindAsync(id);
+            _context.Produtos.Remove(produto);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProdutoExists(int id)
         {
-            return _context.Produto.Any(e => e.ProdutoId == id);
+            return _context.Produtos.Any(e => e.ProdutoId == id);
         }
     }
 }

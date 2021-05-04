@@ -26,10 +26,6 @@ namespace Catalogo.Models
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
 
-        [Required]
-        [StringLength(300)]
-        public string ImagemUrl { get; set; }
-
         public float Estoque { get; set; }
         public DateTime DataCadastro { get; set; }
 

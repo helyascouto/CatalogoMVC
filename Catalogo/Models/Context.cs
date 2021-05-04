@@ -11,11 +11,11 @@ namespace Catalogo.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=DB_Catalogo;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=CatalogoDb;Trusted_Connection=True;");
         }
 
         public DbSet<Categoria> Categorias { get; set; }
 
-        public DbSet<Catalogo.Models.Produto> Produto { get; set; }
+        public DbSet<Catalogo.Models.Produto> Produtos { get; set; }
     }
 }

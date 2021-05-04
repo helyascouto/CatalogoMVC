@@ -26,11 +26,6 @@ namespace Catalogo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImagemUrl")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -62,11 +57,6 @@ namespace Catalogo.Migrations
                     b.Property<float>("Estoque")
                         .HasColumnType("real");
 
-                    b.Property<string>("ImagemUrl")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -85,17 +75,12 @@ namespace Catalogo.Migrations
             modelBuilder.Entity("Catalogo.Models.Produto", b =>
                 {
                     b.HasOne("Catalogo.Models.Categoria", "Categorias")
-                        .WithMany("Produtos")
+                        .WithMany()
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Categorias");
-                });
-
-            modelBuilder.Entity("Catalogo.Models.Categoria", b =>
-                {
-                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }

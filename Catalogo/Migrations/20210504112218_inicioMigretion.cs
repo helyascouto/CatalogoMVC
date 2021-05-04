@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Catalogo.Migrations
 {
-    public partial class InicialCreate : Migration
+    public partial class inicioMigretion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,7 @@ namespace Catalogo.Migrations
                 {
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    ImagemUrl = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
+                    Nome = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,7 +29,6 @@ namespace Catalogo.Migrations
                     Nome = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ImagemUrl = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     Estoque = table.Column<float>(type: "real", nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
