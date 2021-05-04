@@ -16,6 +16,14 @@ namespace Catalogo.Models
         [Required(ErrorMessage = "O campo nome e Obrigatório!")]
         [MaxLength(80)]
         public string Nome { get; set; }
+<<<<<<< Updated upstream
  
+=======
+        [Required]
+        [MaxLength(300)]
+        public string ImagemUrl { get; set; }
+
+       
+>>>>>>> Stashed changes
     }
 }
