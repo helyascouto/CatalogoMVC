@@ -1,6 +1,5 @@
 ﻿using CatalogoMVC.Interface;
 using CatalogoMVC.Models;
-using Refit;
 using System;
 using System.Threading.Tasks;
 
