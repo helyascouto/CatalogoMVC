@@ -15,6 +15,5 @@ namespace CatalogoMVC.Models
 
         public DbSet<Produtos> Produtos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
-        
     }
 }

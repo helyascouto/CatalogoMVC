@@ -14,7 +14,6 @@ namespace CatalogoMVC
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,7 +21,6 @@ namespace CatalogoMVC
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                   
                 });
     }
 }
