@@ -10,7 +10,7 @@ namespace CatalogoMVC.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=Catalogo_db;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=CatalogoDB;Trusted_Connection=True;");
         }
 
         public DbSet<Produtos> Produtos { get; set; }
